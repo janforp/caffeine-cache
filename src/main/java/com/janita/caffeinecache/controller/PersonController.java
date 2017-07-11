@@ -16,8 +16,12 @@ import org.springframework.web.bind.annotation.*;
 @Api(value = "人")
 public class PersonController {
 
+    private final PersonService personService;
+
     @Autowired
-    private PersonService personService;
+    public PersonController(PersonService personService) {
+        this.personService = personService;
+    }
 
     @PostMapping
     @ApiOperation(value = "添加")

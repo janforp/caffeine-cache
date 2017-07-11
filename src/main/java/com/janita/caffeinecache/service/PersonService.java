@@ -13,8 +13,12 @@ import org.springframework.stereotype.Service;
 @Service
 public class PersonService {
 
+    private final PersonDAO personDAO;
+
     @Autowired(required = false)
-    private PersonDAO personDAO;
+    public PersonService(PersonDAO personDAO) {
+        this.personDAO = personDAO;
+    }
 
     /**
      * 根据id获取Person对象，使用缓存
